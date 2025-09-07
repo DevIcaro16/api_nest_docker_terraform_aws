@@ -33,7 +33,7 @@ async function bootstrap(): Promise<void> {
     ]
    });
 
-  await app.listen(PORT);
+  await app.listen(PORT, "0.0.0.0");
 
   console.log(`Server is running on port ${PORT}`);
   console.log(`Swagger is running on port ${PORT}/api`);
