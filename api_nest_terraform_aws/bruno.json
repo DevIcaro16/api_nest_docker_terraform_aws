@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "collection_api_nest_terraform_aws",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

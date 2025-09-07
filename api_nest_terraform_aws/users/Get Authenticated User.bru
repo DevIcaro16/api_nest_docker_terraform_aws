@@ -1,0 +1,15 @@
+meta {
+  name: Get Authenticated User
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{HOST}}users/me
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwNzY0MDBjZi02NDFmLTQ5ODUtOGQzZC0wYzk1ODk0ZTBlZjkiLCJuYW1lIjoiw41jYXJvIFJlYm91w6dhcyBQaW5oZWlybyIsImVtYWlsIjoiaWNhcm9ycDEzQGdtYWlsLmNvbSIsImV4cCI6MTc1OTg0NjM4NCwiaWF0IjoxNzU3MjU0Mzg0LCJhdWQiOiJEZXZJY2FybzE2IGFzc2lub3UgZXNzZSBKV1QgVG9rZW4gUGF5bG9hZCJ9.or7031lVbLaEFkwYcCCiTACeWoRcsbKlxLWbG_LUdf4
+}
