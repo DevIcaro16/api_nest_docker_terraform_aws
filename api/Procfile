@@ -1,1 +1,1 @@
-web: npm install --production && npm run build && npm run start:prod
+web: echo "Starting deployment..." && npm install --production && echo "Build starting..." && npx nest build && echo "Starting application..." && PORT=8080 npm run start:prod
