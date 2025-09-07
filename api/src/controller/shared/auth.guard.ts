@@ -8,7 +8,7 @@ import { Reflector } from '@nestjs/core';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { FastifyRequest as Request } from 'fastify';
-import { PUBLIC_ENDPOINT_METADATA_KEY } from './constants';
+import { JWT_SECRET, PUBLIC_ENDPOINT_METADATA_KEY } from './constants';
 import { JWTPayload } from './types';
 
 @Injectable()
@@ -38,7 +38,7 @@ export class AuthGuard implements CanActivate {
 
     try {
       const payload: JWTPayload = await this.jwtService.verifyAsync(token, {
-        secret: this.configService.get<string>('JWT_SECRET'),
+        secret: JWT_SECRET,
       });
 
       request.userID = payload.sub;

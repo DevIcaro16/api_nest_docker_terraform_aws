@@ -1,8 +1,10 @@
 import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
+import { ConfigService } from "@nestjs/config";
 import { JWTPayload } from "@root/controller/shared/types";
 import { UsersRepository } from "@root/repository/users.repository";
 import { compare } from "bcrypt";
+import { JWT_SECRET } from "@root/controller/shared/constants";
 
 interface CredentialsParams {
     email: string;
@@ -14,7 +16,8 @@ export class AuthService {
 
     constructor(
         private readonly usersRepository: UsersRepository, 
-        private readonly jwtService: JwtService
+        private readonly jwtService: JwtService,
+        private readonly configService: ConfigService
     ) {
 
     }
@@ -40,7 +43,7 @@ export class AuthService {
         };
 
         const token: string = await this.jwtService.signAsync(payload, {
-            secret: process.env.JWT_SECRET,
+            secret: JWT_SECRET,
         });
 
         return token;
