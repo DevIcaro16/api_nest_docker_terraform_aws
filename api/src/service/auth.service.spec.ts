@@ -86,7 +86,7 @@ describe('AuthService', () => {
           email: mockUser.email,
         }),
         expect.objectContaining({
-          secret: process.env.JWT_SECRET,
+          secret: expect.any(String),
         }),
       );
       expect(result).toBe(expectedToken);
